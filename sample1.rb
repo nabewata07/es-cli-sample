@@ -48,14 +48,22 @@ class SampleES
   def bulk_insert
     data = File.read('./data/bulk_insert.json')
     res = conn.post do |req|
-      req.url "/#{index}/_mapping/_doc"
-      req.headers['Content-Type'] = 'application/json'
+      req.url "/_bulk"
+      req.headers['Content-Type'] = 'application/x-ndjson'
       req.body = data
     end
+  end
+
+  def get_sample_data
+    # conn.get
   end
 end
 
 es = SampleES.new
 
 res = es.send(ARGV[0])
+pp res.body
+
+res = es.count
+puts "document count"
 pp res.body
