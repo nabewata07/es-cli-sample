@@ -1,0 +1,4 @@
+{"index": {"_index":"sample_index", "_type":"_doc", "_id":"1"}}
+{"title": "title0", "name":"name0", "age":10, "created":"2019-08-01"}
+{"index": {"_index":"sample_index", "_type":"_doc", "_id":"2"}}
+{"title": "title1", "name":"name1", "age":11, "created":"2019-08-01"}
