@@ -54,8 +54,27 @@ class SampleES
     end
   end
 
-  def get_sample_data
-    # conn.get
+  def get_sample_data(from = 0, size = 10)
+    conn.get do |req|
+      req.url "/#{index}/_search"
+      req.headers['Content-Type'] = 'application/json'
+      req.body = JSON.generate({
+        "from": from,
+        "size": size
+      })
+    end
+  end
+
+  def set_alias(index_name, alias_name)
+  end
+
+  def switch_alias(from, to, alias_name)
+  end
+
+  def aliases
+  end
+
+  def get_mapping(index)
   end
 end
 
