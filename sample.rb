@@ -22,13 +22,13 @@ document = {
 region = 'ap-northeast-1'
 service = 'es'
 
-client = Elasticsearch::Client.new(url: host) do |f|
+client = Elasticsearch::Client.new(url: host, port: 443) do |f|
   f.request :aws_sigv4,
     service: service,
     region: region,
     access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    session_token: ENV['AWS_SESSION_TOKEN'] # optional
+    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']#,
+    # session_token: ENV['AWS_SESSION_TOKEN'] # optional
   f.adapter Faraday.default_adapter
 end
 
