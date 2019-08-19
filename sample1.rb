@@ -82,7 +82,3 @@ es = SampleES.new
 
 res = es.send(ARGV[0])
 pp res.body
-
-res = es.count
-puts "document count"
-pp res.body
